@@ -104,8 +104,8 @@ and begin
 end
 and cd "$BASE_DIR"
 
-# if dependency dir is not the default one, link it to the default location!
+# if dependency dir is not the default one, link each dependency into the default location...:
 if [ "$DEP_DIR" != "$DEP_DIR_DEFAULT" ]
 	cd "$BASE_DIR"
-	ln -s $DEP_DIR $DEP_DIR_DEFAULT
+	ln -s (readlink -m $DEP_DIR/*) $DEP_DIR_DEFAULT/
 end
