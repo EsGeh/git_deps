@@ -2,7 +2,6 @@
 
 
 set BASE_DIR (dirname (readlink -m (status filename)))/..
-set SCRIPTS_DIR (dirname (readlink -m (status filename)))
 set DEP_DIR_DEFAULT "$BASE_DIR/dependencies"
 
 source "$BASE_DIR/dependencies.fish"
@@ -104,3 +103,9 @@ and begin
 	end
 end
 and cd "$BASE_DIR"
+
+# if dependency dir is not the default one, link each dependency into the default location...:
+if [ "$DEP_DIR" != "$DEP_DIR_DEFAULT" ]
+	cd "$BASE_DIR"
+	ln -s (readlink -m $DEP_DIR/*) $DEP_DIR_DEFAULT/
+end
