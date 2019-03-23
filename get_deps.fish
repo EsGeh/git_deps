@@ -70,7 +70,7 @@ and begin
 		set lib_name $$dep[1][1]
 		set lib_url $$dep[1][2]
 		set lib_version $$dep[1][3]
-		if [ $$dep[1][3] != "" ]
+		if [ $$dep[1][4] != "" ]
 			set init_cmd $$dep[1][4]
 		end
 
