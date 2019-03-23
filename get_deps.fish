@@ -76,7 +76,7 @@ and begin
 
 		echo "dependency: $dep"
 		echo "url: $lib_url, version: $lib_version"
-	
+
 		# download if missing:
 		if [ -d "$DEP_DIR/$lib_name" ]
 			echo "found in $DEP_DIR/$lib_name"
