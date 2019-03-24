@@ -113,5 +113,8 @@ and cd "$BASE_DIR"
 # TODO: exclude the script itself!!
 if [ "$DEP_DIR" != "$DEP_DIR_DEFAULT" ]
 	cd "$BASE_DIR"
+	# TODO: only create if not existing:
 	ln -s (readlink -m $DEP_DIR/*) $DEP_DIR_DEFAULT/
 end
+
+exit 0
