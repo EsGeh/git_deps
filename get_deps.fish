@@ -90,6 +90,7 @@ and begin
 		and cd "$lib_name"
 		and if [ (git rev-parse HEAD) != $lib_version ]
 			echo "ERROR: '$lib_name' version conflict. Try cleaning $DEP_DIR and run again!"
+			exit 1
 		else
 			echo "$lib_name is up to date"
 		end
@@ -105,6 +106,7 @@ end
 and cd "$BASE_DIR"
 
 # if dependency dir is not the default one, link each dependency into the default location...:
+# TODO: exclude the script itself!!
 if [ "$DEP_DIR" != "$DEP_DIR_DEFAULT" ]
 	cd "$BASE_DIR"
 	ln -s (readlink -m $DEP_DIR/*) $DEP_DIR_DEFAULT/
