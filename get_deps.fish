@@ -99,6 +99,10 @@ and begin
 			set init_cmd (echo $init_cmd | sed "s:\$DEP_DIR:$DEP_DIR:g")
 			echo "calling '$init_cmd' ..."
 			eval "$init_cmd"
+			or begin
+				echo "ERROR: '$lib_name': error while running init script"
+				exit 1
+			end
 		end
 		and cd -
 	end
