@@ -70,6 +70,7 @@ and begin
 		set lib_url $$dep[1][2]
 		set lib_version $$dep[1][3]
 
+		set --erase init_cmd
 		if test (count $$dep[1]) -gt 3
 			set init_cmd $$dep[1][4]
 		end
